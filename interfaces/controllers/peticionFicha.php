@@ -1,9 +1,8 @@
-<?php 
+<?php
 session_start();
 require '../model/conexion.php';
 class DB extends conexion{
 
-    
     public function traerinforme($ficha){
         parent::getdb();
         $sql = $this->getdb()->query("SELECT fc.nroficha,a.nombre as area,a.docIDCoordinador as documentoCoordi,concat(uc.nombres,' ',uc.apellidos) as NombreCoordinador, p.nombre as programa,p.proyectoFormativo as 'proformativo',n.nombre as nivel, m.nombre as municipio,fc.horaInicio as horai,fc.horaFin as horaf,etaF.nombre as etaformacion,etaP.nombre as etapaproyecto,u.nombres as lider from tblficha as fc
@@ -34,7 +33,7 @@ class DB extends conexion{
         if ( $valor > 0){
             while ($row = $sql->fetch(PDO::FETCH_ASSOC)):
                 $_SESSION['documentoCoordinador'] = $row['documentoCoordi'];
-            
+
                 ?>
                 <div class="row">
                     <div class="col-6">
@@ -45,13 +44,12 @@ class DB extends conexion{
                     </div>
 
                     <div class="col-6">
-                    
+
                         <div class="form-group">
                             <label for="nivel">Nivel:</label>
                             <input type="text" class="form-control" id="nivel" disabled required value="<?= $row['nivel'];?>">
                         </div>
                     </div>
-                    
                 </div>
 
                 <div class="row">
@@ -71,12 +69,12 @@ class DB extends conexion{
                                                 <option value="<?=$column['nombre']?>"><?=$column['nombre']?></option>
                                             <?php
                                         }
-                                        
+
                                     endwhile;
                                     ?>
-                                
+
                                 </select>
-                            
+
                         </div>
                     </div>
 
@@ -88,7 +86,7 @@ class DB extends conexion{
                             <label for="programa">Programa:</label>
                             <input type="text" class="form-control" id="programa" disabled required value="<?= $row['programa'];?>">                       
                         </div>
-                        
+
                     </div>
                 </div>
 
@@ -114,16 +112,14 @@ class DB extends conexion{
                             <label for="municipio">Municipio:</label>
                             <input type="text" class="form-control" id="muncipio" disabled required value="<?= $row['municipio'];?>" > 
                         </div>
-                
 
-                        
                     </div>
 
                     <div class="col-6">
                         <div class="form-group">
                             <label for="etapa-proyecto">Etapa proyecto:</label>
                             <select name="etapaproyecto" class="form-control"  id="etapa-proyecto"required>
-                                <?php 
+                                <?php
                                 while ($column = $listaetapaProyecto->fetch(PDO::FETCH_ASSOC)):
                                     if ($column['nombre'] == $row['etapaproyecto']) {
                                         ?>
@@ -152,7 +148,7 @@ class DB extends conexion{
                         <div class="form-group">
                             <label for="instructor-lider">Instructor lider:</label>
                             <select name="instructor" class="form-control"  id="instructor-lider"required value="<?= $row['lider']?>">
-                                <?php 
+                                <?php
                                 while ($column = $listaequipoInstructores->fetch(PDO::FETCH_ASSOC)):
                                     if ($column['nombre'] == $row['lider']) {
                                         ?>
@@ -165,25 +161,25 @@ class DB extends conexion{
                                         }
                                 endwhile;
                                 ?>
-                                
+
                             </select>
                         </div>
-                    
+
                     </div>
 
                 </div>
 
 
                 <div class="row">
-                    
+
                     <!-- Coordinador  -->
                     <div class="col-6">
-                    
+
                         <div class="form-group">
                             <label for="coordinador">Coordinador:</label>
                             <input type="text" class="form-control" id="coordinador" disabled required value="<?= $row['NombreCoordinador']?>">
                         </div>
-                    
+
                     </div>
 
                     <!-- tipo de falta -->
@@ -193,10 +189,10 @@ class DB extends conexion{
                             <select name="tipofalta" class="form-control"  id="tipofalta" required>
                                 <option value="Academica">Academica</option>
                                 <option value="Diciplinaria">Diciplinaria</option>
-                            </select>                    
+                            </select>
                         </div>
                     </div>
-                </div> 
+                </div>
 
 
             <div class="row">
@@ -219,18 +215,18 @@ class DB extends conexion{
                         <option value="Grave">Grave</option>
                         <option value="Gravisima">Gravisima</option>
 
-                        </select>                    
+                        </select>
                     </div>
                 </div>
-            </div> 
+            </div>
 
             <div class="row">
-                
+
                 <!-- Estudiantes -->
                 <div class="col-6">
                     <div class="container">
                         <label for="">Estudiantes:</label>
-                        <?php 
+                        <?php
                             $aprendices = $this->getdb()->query("SELECT u.docId,u.nombres, u.apellidos,af.numFicha from tblaprendicesficha as af inner join tblusuario as u on u.docID = af.docIDaprendiz where numficha = $ficha");
                             while ($column = $aprendices->fetch(PDO::FETCH_ASSOC)):
                                 ?>
@@ -251,15 +247,15 @@ class DB extends conexion{
                         <div class="form-group">
                             <label for="Sugerencia">Sugerencia:</label>
                             <select name="sugerencia" class="form-control"  id="Sugerencia" >
-                                <?php 
+                                <?php
                                     $sugerencia = $this->getdb()->query("SELECT * from tblsugerencia");
-                                    while ($column = $sugerencia->fetch(PDO::FETCH_ASSOC)): 
+                                    while ($column = $sugerencia->fetch(PDO::FETCH_ASSOC)):
                                         ?>
                                             <option value="<?=$column['codigo']?>"><?=$column['nombre']?></option>
                                         <?php
                                     endwhile;
                                 ?>
-                            </select>                    
+                            </select>
                         </div>
                     </div>
                     <!-- evidencia -->
@@ -278,9 +274,7 @@ class DB extends conexion{
                         </div>
                     </div>
                 </div>
-                
 
-                
             </div>
 
 
@@ -290,12 +284,12 @@ class DB extends conexion{
             </div>
             <?php
             endwhile;
-            
+
         }else{
-            
+
 
             ?>
-            <!-- 
+            <!--
             -******************************************
             -
             -   segunda vista cuando la ficha no es encontrada
@@ -314,13 +308,13 @@ class DB extends conexion{
                 </div>
 
                 <div class="col-6">
-                
+
                     <div class="form-group">
                         <label for="nivel">Nivel:</label>
                         <input type="text" class="form-control" id="nivel" disabled required>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="row">
@@ -330,7 +324,7 @@ class DB extends conexion{
                         <label for="etapa-formativa">Etapa formativa:</label>
                         <select name="etapaformacion" class="form-control"  id="etapa-formativa" required>
                         </select>
-                        
+
                     </div>
                 </div>
 
@@ -342,7 +336,7 @@ class DB extends conexion{
                         <label for="programa">Programa:</label>
                         <input type="text" class="form-control" id="programa" disabled required>                       
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -368,9 +362,9 @@ class DB extends conexion{
                         <label for="municipio">Municipio:</label>
                         <input type="text" class="form-control" id="muncipio" disabled required>
                     </div>
-               
 
-                    
+
+
                 </div>
 
                 <div class="col-6">
@@ -395,34 +389,34 @@ class DB extends conexion{
                         <select name="instructor" class="form-control"  id="instructor-lider" required>
                         </select>
                     </div>
-                
+
                 </div>
 
             </div>
 
 
             <div class="row">
-                
+
 
                 <div class="col-6">
-                
+
                     <div class="form-group">
                         <label for="coordinador">Coordinador:</label>
                         <input type="text" class="form-control" id="coordinador" disabled required>
                     </div>
-                
+
                 </div>
 
                 <div class="col-6">
-                
+
                     <div class="form-group">
                         <label for="tipofalta">Tipo de falta:</label>
                         <select name="tipofalta" class="form-control"  id="tipofalta" required>
-                        </select>                    
+                        </select>
                     </div>
-                
+
                 </div>
-            </div> 
+            </div>
 
 
            <div class="row">
@@ -441,11 +435,11 @@ class DB extends conexion{
                     <div class="form-group">
                             <label for="tipocalifica">Tipo de Calificacion:</label>
                             <select name="tipocalificacion" class="form-control"  id="tipocalifica" required>
-                            </select>                    
+                            </select>
                         </div>
                     </div>
-                </div>  
-            </div> 
+                </div>
+            </div>
 
             <!-- evidencia -->
             <div class="row">
@@ -456,11 +450,11 @@ class DB extends conexion{
                     </div>
                 </div>
             </div>
-            
-           
 
 
-            
+
+
+
             <div class="w-100 d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary ">Enviar</button>
             </div>

@@ -15,10 +15,12 @@
                 <div class="form-group">
                     <label for="fecha">Fecha:</label>
                     <input type="text" class="form-control" id="fecha" name="date" disabled value="<?= date("d")."-".date("m")."-".date("Y");?>" >
-                </div> 
+                </div>
             </div>
+
+
         </div>
-            
+
 
            <div class="infoContent">
 
@@ -31,13 +33,13 @@
                     </div>
 
                     <div class="col-6">
-                    
+
                         <div class="form-group">
                             <label for="nivel">Nivel:</label>
                             <input type="text" class="form-control" id="nivel" disabled required>
                         </div>
                     </div>
-                    
+
                 </div>
 
                 <div class="row">
@@ -47,7 +49,7 @@
                             <label for="etapa-formativa">Etapa formativa:</label>
                             <select name="etapaformacion" class="form-control"  id="etapa-formativa" >
                             </select>
-                            
+
                         </div>
                     </div>
 
@@ -59,7 +61,7 @@
                             <label for="programa">Programa:</label>
                             <input type="text" class="form-control" id="programa" disabled required>                       
                         </div>
-                        
+
                     </div>
                 </div>
 
@@ -85,9 +87,9 @@
                             <label for="municipio">Municipio:</label>
                             <input type="text" class="form-control" id="muncipio" disabled required>
                         </div>
-                
 
-                        
+
+
                     </div>
 
                     <div class="col-6">
@@ -178,6 +180,13 @@
                 </div>
 
             </div> <!-- fin del contenedor para traer la informacion -->
+            
+           
+            
+
+            
+            
+           
         </form>
     </div>
 </div>

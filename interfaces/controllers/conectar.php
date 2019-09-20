@@ -1,4 +1,4 @@
-<?php 
+<?php
 require '../model/conexion.php';
 
 
@@ -16,17 +16,17 @@ require '../model/conexion.php';
        $etapaproyecto = $this->getdb()->query("SELECT codigo from tbletapaproyecto where nombre = '$etapaP'");
       while ($row = $instrc->fetch(PDO::FETCH_ASSOC)) {
         $i = $row['docID'];
-      }  
+      }
       while ($row = $etapaformativa->fetch(PDO::FETCH_ASSOC)) {
         $eta = $row['codigo'];
-      } 
+      }
       while ($row = $etapaproyecto->fetch(PDO::FETCH_ASSOC)) {
         $etap = $row['codigo'];
-      } 
-       $sql = $this->getdb()->query("UPDATE tblficha 
+      }
+       $sql = $this->getdb()->query("UPDATE tblficha
        set instructorLider = $i,
        etapaFormacion = $eta,
-       etapaProyecto = $etap 
+       etapaProyecto = $etap
        where nroficha = '$ficha'");
      }
 
@@ -38,7 +38,6 @@ require '../model/conexion.php';
       $sql = $this->getdb()->query("INSERT INTO tblreporte value(null,current_date() ,' $justificacion ',$instructorReporte,'$evidencia ',' $normasReglamentarias',$coordinador,'$tipofalta',' $tipoCalificcion',$sugerencia)");
       // $sql->execute([]);
      }
-    
 
      //ingreso de aprendices
      public function IngresarAprendices($documentoficha){
@@ -47,11 +46,11 @@ require '../model/conexion.php';
       order by consecutivo desc
       limit 1 ");
       while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
-        
+
         $insertarAprendices = $this->getdb()->prepare("INSERT INTO tblaprendicesreportados value(null,:conse,:documentoaprendiz)");
         $insertarAprendices->execute(["conse" =>$row['consecutivo'],"documentoaprendiz" =>$documentoficha]);
       }
-      
+
      }
 
 
@@ -71,7 +70,6 @@ require '../model/conexion.php';
       $sql->execute([$password,$documento]);
     }
  }
- 
 
 
 ?>

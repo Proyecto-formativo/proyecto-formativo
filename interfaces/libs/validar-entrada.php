@@ -1,7 +1,7 @@
 <?php
 session_start();
 //validar los campos para el ingreso del usuario
-if ( (!empty($_POST['docu'])  &&  !empty($_POST['pas'])) || (!empty( $_SESSION['password']) && !empty( $_SESSION['documento']))  ) {
+if ( (!empty($_POST['docu'])  &&  !empty($_POST['pas'])) || (!empty( $_SESSION['password']) && !empty( $_SESSION['password']))  ) {
     
     require "../controllers/conectar.php";
     $cone = new conectar();

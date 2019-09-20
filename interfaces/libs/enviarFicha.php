@@ -15,7 +15,7 @@ if (!empty($_POST['justificar']) && !empty($_POST['evidencia']) && !empty($_POST
 
 
     //ingreso del reporte se insertaran datos en la tabla de los reportes
-    $justificacion = $_POST['justificar']; 
+    $justificacion = $_POST['justificar'];
     $instructorReporte = $_SESSION['documento'];
     $evidencia = $_POST['evidencia'];
     $normasReglamentarias = $_POST['normasReglamentarias'];
@@ -25,23 +25,20 @@ if (!empty($_POST['justificar']) && !empty($_POST['evidencia']) && !empty($_POST
     $sugerencia = $_POST['sugerencia'];
 
     $IngresoDeDatos->ingresarReporte($justificacion,$instructorReporte,$evidencia,$normasReglamentarias,$coordinador,$tipofalta,$tipoCalificcion,$sugerencia);
-    
-    
+
+
     //aprendices que seran citados
     $aprendices = $_POST['aprendices'];
     foreach ($aprendices as $key => $value) {
         $IngresoDeDatos->IngresarAprendices($value);
     }
-    
-    
-    
-    
+
 
     header('location:../instructor.php');
 }else{
     $_SESSION['mensaje2'] = "error no se pueden datos vacio";
     header('location:../instructor.php');
-    
+
 }
 // echo $ficha ;
 // echo "<br>";
