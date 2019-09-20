@@ -34,20 +34,23 @@ $(document).ready(function() {
         .then(res => res.text())
         .then(data => (change.innerHTML = data))
         .then(() => {
+
           $(".ficha").bind("keyup", function() {
+
             var ficha = $(".ficha").val();
             $.ajax({
               type: "post",
               url: "libs/numeroFicha.php",
               data: { numeroficha: ficha },
-              //dataType: "php",
               success: function(respuesta) {
                 $(".infoContent").html(respuesta);
               }
             }); //fin del ajax
+
           }); //fin de bind keyup
 
-          $(".FormularioCompromisos").bind("click", function(e) {
+          $("#FormularioCompromisos").bind("click", function(e) {
+
             e.preventDefault();
             var actividad = $("#actividad").val();
             var responsable = $("#responsable").val();
@@ -55,15 +58,32 @@ $(document).ready(function() {
             $.ajax({
               type: "post",
               url: "libs/listarCompromisos.php",
-              data: { actividad: actividad },
-              dataType: "php",
+              data: { actividad: actividad,responsable:responsable,fechacompromiso:fechacompromiso },
               success: function(respuestas) {
-                console.log(respuestas);
-
                 $("#listar-compromisos").html(respuestas);
-              }
+              },
+              error: function (jqXHR,estado,error) { 
+                console.error(error);
+                console.error(error);
+               }
+              
+
+
             }); //fin del ajax
           }); //fin de click
+
+
+
+
+
+
+
+
+
+
+
+
+
         }); //fin them
 
       if (i == 0) {

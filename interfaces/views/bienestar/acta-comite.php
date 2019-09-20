@@ -196,8 +196,8 @@
                         </div>
                     </div>
                     <div class="w-100 d-flex justify-content-center mb-5">
-                        <!-- <input type="" class="btn btn-success" value="Agregar Compromiso" > -->
-                        <button type="submit" class="FormularioCompromisos" >enviar</button>
+                        <input type="submit" class="btn btn-success" id="FormularioCompromisos" value="Agregar Compromiso" >
+                        <!-- <button type="submit" class="FormularioCompromisos" >enviar</button> -->
                     </div>
                 </form>
 
