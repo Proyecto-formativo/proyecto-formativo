@@ -10,8 +10,8 @@ class Conexion{
         $this->host = 'localhost';
         $this->user  = 'root';
         $this->pass  = '';
-        $this->db = 'proyecto_formativo';
-    }
+        $this->db = 'proyectoformativo';
+    }  
     
     public function getdb(){
         try {

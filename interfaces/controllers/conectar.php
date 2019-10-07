@@ -2,7 +2,7 @@
 require '../model/conexion.php';
 
 
- class conectar extends conexion{
+ class conectar extends conexion{ 
      public function validarUsuario($documento,$pasword){
        echo parent::ingresoUsuario($documento,$pasword);
      }
