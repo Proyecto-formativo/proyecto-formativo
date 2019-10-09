@@ -1,4 +1,3 @@
-
  <div class="row">
  <!-- centro -->
 <div class="col-6">
@@ -14,7 +13,23 @@
      <div class="form-group">
          <label for="Sede">Sede:</label>
          <select name="sede" class="form-control"  id="sede" >
-         <option value=""><?= $row[1] ?> </option>
+         <?php
+         $valores = $dato->peticionSede($valor);
+         while ($colum = $valores->fetch(PDO::FETCH_ASSOC)):
+            if ($colum['sede'] == $row[1]) {
+                ?>
+             <option value="<?= $colum['codigo'] ?>" selected><?= $colum['sede'] ?> </option>
+        
+             <?php
+            }else{
+
+                ?>
+             <option value="<?= $colum['codigo'] ?>"><?= $colum['sede'] ?> </option>
+        
+             <?php
+            }
+         endwhile;
+         ?>
          </select>
      </div>
 </div>

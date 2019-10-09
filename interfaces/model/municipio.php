@@ -16,6 +16,14 @@ class municipio extends conexion {
         $sql->execute(['dato'=>$dato]);
         return $sql;
     }
+    
+    public function peticionSede($dato)
+    {
+        self::getdb();
+        $sql = $this->getdb()->prepare("SELECT s.codigo as codigo,s.nombre AS sede FROM tblsede  AS s  WHERE s.municipio = :dato");
+        $sql->execute(['dato'=>$dato]);
+        return $sql;
+    }
 }
 
 

@@ -2,8 +2,16 @@
 require('../controllers/municipios.php');
 $municipio = new municipios();
 $municipios = $municipio->mostrarmunicipios();
-date_default_timezone_set('America/Bogota');
 
+
+
+
+require('../controllers/areas.php');
+$area = new areas();
+$areas = $area->listar_areas();
+
+
+date_default_timezone_set('America/Bogota');
 ?>
 <div class="style-float">
     <div class="container">
@@ -73,7 +81,7 @@ date_default_timezone_set('America/Bogota');
                     <div class="col-6">
                         <div class="form-group">
                             <label for="hora-inicio">hora inicio:</label>
-                            <input type="text" name="hora-inicio"class="form-control" id="hora-inicio" value="<?= date('h:i:s')?>" required disabled>
+                            <input type="time" name="hora-inicio"class="form-control" id="hora-inicio" value="<?= date('h:i:s')?>" required disabled>
                         </div>
                     </div>
                     <div class="col-6">
@@ -98,7 +106,17 @@ date_default_timezone_set('America/Bogota');
                     <div class="col-6">
                         <div class="form-group">
                             <label for="Area">Area:</label>
-                            <input type="text" class="form-control" id="area"required>
+                            <select name="municipio" class="form-control"  id="municipio" required >
+                            <option value="0">Seleccionar area</option>     
+                                <?php  while ($row = $areas->fetch(PDO::FETCH_ASSOC)) {
+                                ?>
+
+                                <option value="<?php echo $row['codigo'] ?>"><?php echo $row['nombre'] ?></option>     
+                                
+                                <?php }  ?>
+
+                        </select>
+                            <!-- <input type="text" class="form-control" id="area" value="Área Gestión y Desarrollo Empresarial" required> -->
                         </div>
                     </div>
             </div>
