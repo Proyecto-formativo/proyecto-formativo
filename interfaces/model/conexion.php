@@ -12,6 +12,7 @@ class Conexion{
         $this->pass  = '';
         $this->db = 'proyectoformativo';
     }
+
     
     public function getdb(){
         try {

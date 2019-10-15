@@ -1,4 +1,4 @@
-    <?php require "bootstraphead/boohead.php";
+    <?php require "bootstraphead/boohead.php"; 
     session_start();
 
     if (isset($_SESSION['documento'])) {

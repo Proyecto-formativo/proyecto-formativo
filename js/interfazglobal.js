@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var change = document.getElementById("change");
   var dt = document.getElementsByClassName("boton");
+  var listCompromisos = [];
   //se ingresara un texto donde se indicara la funcionalidad del sistema nota: solo al principio de la pagina
 
   change.innerHTML = `
@@ -49,34 +50,55 @@ $(document).ready(function() {
 
           }); //fin de bind keyup
 
-          $("#FormularioCompromisos").bind("click", function(e) {
+         
 
-            e.preventDefault();
-            var actividad = $("#actividad").val();
-            var responsable = $("#responsable").val();
-            var fechacompromiso = $("#fecha-compromiso").val();
+
+
+          $("#municipio").bind("change", function() {
+
+            var municipio = $("#municipio").val();
             $.ajax({
               type: "post",
-              url: "libs/listarCompromisos.php",
-              data: { actividad: actividad,responsable:responsable,fechacompromiso:fechacompromiso },
-              success: function(respuestas) {
-                $("#listar-compromisos").html(respuestas);
-              },
-              error: function (jqXHR,estado,error) { 
-                console.error(error);
-                console.error(error);
-               }
-              
-
-
+              url: "libs/peticionMunicipio.php",
+              data: { municipio: municipio },
+              success: function(respuesta) {
+                $(".infoCentroSede").html(respuesta);
+              }
             }); //fin del ajax
-          }); //fin de click
+
+          }); //fin de bind keyup
+
+          $("#botton-list").bind("click", (e)=> {
+            e.preventDeFaut;
+            var actividad_text = $('#actividad_text').val(),
+                responsable = $('#responsable').val(),
+                fecha = $('#fecha-compromiso').val(),
+                array = [actividad_text,responsable,fecha],
+                dato = "";
+                
+            listCompromisos.push(array);
 
 
+            for (let i= 0; i < listCompromisos.length; i++) {
+              dato += `
+              <tr>
+              <td>${Number(i+1)}</td>
+              <td>${listCompromisos[i][0]}</td>
+              <td>${listCompromisos[i][1]}</td>
+              <td>${listCompromisos[i][2]}</td>
+              </tr>
+              `;
+              $('#listar-compromisos-tabla').html(dato);
+            }
+            console.log(listCompromisos);
+            let lista = JSON.parse(listaCompromisos);
+            $("#listaCompromisos").val(lista);
+            
+            
+            
+      
 
-
-
-
+          }); //fin de bind keyup
 
 
 
