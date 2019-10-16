@@ -26,7 +26,7 @@ $(document).ready(function() {
   } else {
     change.style.height = null;
   }
-  console.log(change.clientHeight);
+  //console.log(change.clientHeight);
 
   //se creara un ajax por boton con su respectivo enrutamiento
   for (let i = 0; i < dt.length; i++) {
