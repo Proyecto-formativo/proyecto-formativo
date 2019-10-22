@@ -11,7 +11,8 @@ class Conexion{
         $this->user  = 'root';
         $this->pass  = '';
         $this->db = 'proyectoformativo';
-    }  
+    }
+
     
     public function getdb(){
         try {

@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var change = document.getElementById("change");
   var dt = document.getElementsByClassName("boton");
+  var listCompromisos = [];
   //se ingresara un texto donde se indicara la funcionalidad del sistema nota: solo al principio de la pagina
 
   change.innerHTML = `
@@ -25,7 +26,6 @@ $(document).ready(function() {
   } else {
     change.style.height = null;
   }
-  console.log(change.clientHeight);
 
   //se creara un ajax por boton con su respectivo enrutamiento
   for (let i = 0; i < dt.length; i++) {
@@ -67,7 +67,37 @@ $(document).ready(function() {
 
           }); //fin de bind keyup
 
+          $("#botton-list").bind("click", (e)=> {
+            e.preventDeFaut;
+            var actividad_text = $('#actividad_text').val(),
+                responsable = $('#responsable').val(),
+                fecha = $('#fecha-compromiso').val(),
+                array = [actividad_text,responsable,fecha],
+                dato = "";
+                
+            listCompromisos.push(array);
 
+
+            for (let i= 0; i < listCompromisos.length; i++) {
+              dato += `
+              <tr>
+              <td>${Number(i+1)}</td>
+              <td>${listCompromisos[i][0]}</td>
+              <td>${listCompromisos[i][1]}</td>
+              <td>${listCompromisos[i][2]}</td>
+              </tr>
+              `;
+              $('#listar-compromisos-tabla').html(dato);
+            }
+            console.log(listCompromisos);
+            let lista = JSON.parse(listaCompromisos);
+            $("#listaCompromisos").val(lista);
+            
+            
+            
+      
+
+          }); //fin de bind keyup
 
 
 

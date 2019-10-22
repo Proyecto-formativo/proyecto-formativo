@@ -13,7 +13,7 @@
     ?>
     <link rel="stylesheet" href="../styles/inter.css">
    
-    <script src="https://kit.fontawesome.com/4de60b0d23.js"></script>
+    <script src="https://kit.fontawesome.com/4de60b0d23.js" crossorigin="anonymous"></script>
     <title>Coordinador</title>
 </head>
 <body>
@@ -100,7 +100,6 @@
     </section>
     
 <?php require "../bootstrapfoo/boofoo.php"?>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
 <script src="../js/interfazglobal.js"></script>
 </body>
 </html>

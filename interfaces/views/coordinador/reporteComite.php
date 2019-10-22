@@ -17,7 +17,7 @@
                     </thead>
                     <tbody>
                         <?php  require "consultarReportesHechos.php";?>
-                    
+                            
                     </tbody>
                 </table>
 

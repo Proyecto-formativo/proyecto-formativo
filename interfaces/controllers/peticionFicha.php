@@ -23,7 +23,7 @@ class DB extends conexion{
         inner join tblusuario as uc
         on a.docIDCoordinador = uc.docID
         where fc.nroficha = '$ficha'
-        limit 1");
+        limit 1"); 
         $listaetapaformativa =$this->getdb()->query( "SELECT * FROM tbletapaformacion");
         $listaetapaProyecto =$this->getdb()->query( "SELECT * FROM tbletapaproyecto");
         $listaequipoInstructores = $this->getdb()->query( "SELECT CONCAT(u.nombres,' ',u.apellidos) as nombres,u.nombres as nombre, e.numficha from tblequipoinstructor as e inner join tblusuario as u on u.docid = e.docidinstructor where numficha = '$ficha' ");

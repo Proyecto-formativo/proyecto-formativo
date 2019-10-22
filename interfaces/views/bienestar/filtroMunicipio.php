@@ -25,7 +25,7 @@
 
                 ?>
              <option value="<?= $colum['codigo'] ?>"><?= $colum['sede'] ?> </option>
-        
+            
              <?php
             }
          endwhile;

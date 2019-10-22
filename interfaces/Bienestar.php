@@ -10,7 +10,7 @@
     }
     ?>
     <link rel="stylesheet" href="../styles/inter.css">
-    <script src="https://kit.fontawesome.com/4de60b0d23.js"></script>
+    <script src="https://kit.fontawesome.com/4de60b0d23.js" crossorigin="anonymous"></script>
     <title>Bienestar</title>
 </head>
 <body>
@@ -100,8 +100,6 @@
     </section>
 
 <?php require "../bootstrapfoo/boofoo.php"?>
-<script src="../librerias/popper.min.js"></script>
-<script src="../librerias/jquery-3.4.1.min.js"></script>
 <script src="../js/interfazglobal.js"></script>
 </body>
 </html>
