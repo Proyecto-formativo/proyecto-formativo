@@ -73,7 +73,6 @@
                         <div class="style-botones-dropdown boton">
                             <button type="button" id="btn-2" class="dropdown-item">Total Aprendices Citados A Comité En El Año</button>
                         </div>
-
                     </div>
                 </div>
 
