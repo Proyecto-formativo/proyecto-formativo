@@ -25,8 +25,18 @@
             font-family: "Arial Black";
         }
         .modal-body input{
-           background:#0c5460;border-color:#d39e00 ;
+            background:#342A40;border-color:#249784 ;           
             color:antiquewhite;
+        }
+        #justificacion{
+            height:60px;
+        }
+        #areau{
+            margin-left:10px;
+            border:0px solid white;
+            font-size:32px;
+            width:32px;
+            background:#d39e00;
         }
     </style>
 </head>
