@@ -8,12 +8,6 @@ class window {
             case 1:
                 require "../views/configuraciones.php";
                 break;
-            case 3:
-                require "../libs/salir.php";
-                break;
-            default:
-                echo "error fatal";
-                break;
         }
     }
 
@@ -23,27 +17,47 @@ class window {
                 require "../views/bienestar/acta-comite.php";
                 break;
             case 1:
-                require "../views/bienestar/citar-aprendices.php";
+                require "../views/vistas-globales/reportes-generales/consulta1.php";
                 break;
             case 2:
-                require "../views/bienestar/citar-aprendices.php";
+                require "../views/vistas-globales/reportes-generales/consulta2.php";
                 break;
             case 3:
-                require "../views/configuraciones.php";
+                require "../views/vistas-globales/reportes-generales/consulta3.php";
                 break;
             case 4:
-                require "../libs/salir.php";
+                require "../views/vistas-globales/reportes-generales/consulta4.php";
                 break;
-            default:
-                echo "error fatal";
+            case 5:
+                require "../views/vistas-globales/reportes-generales/consulta5.php";
+                break;
+            case 6:
+                require "../views/vistas-globales/reportes-generales/consulta6.php";
+                break;
+            case 7:
+                require "../views/vistas-globales/reportes-generales/consulta7.php";
+                break;
+            case 8:
+                require "../views/vistas-globales/reportes-generales/consulta8.php";
+                break;
+            case 9:
+                require "../views/vistas-globales/reportes-generales/consulta9.php";
+                break;
+            case 10:
+                require "../views/vistas-globales/reportes-generales/consulta10.php";
+                break;
+
+            case 11:
+                require "../views/configuraciones.php";
                 break;
         }
     }
 
+  
     function coordinador($numero){
         switch ($numero) {
             case 0:
-                require "../views/instructor/citacion-comite.php";
+                require "../views/coordinador/reporteComite.php";
                 break;
             case 1:
                 require "../views/instructor/citar-aprendices.php";
@@ -51,15 +65,8 @@ class window {
             case 2:
                 require "../views/configuraciones.php";
                 break;
-            case 3:
-                require "../libs/salir.php";
-                break;
-            default:
-                echo "error fatal";
-                break;
         }
     }
 
 }
-
 ?>
