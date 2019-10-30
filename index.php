@@ -1,12 +1,25 @@
-    <?php require "bootstraphead/boohead.php";
+    <?php// require "bootstraphead/boohead.php";
+    
     session_start();
-
+  
     if (isset($_SESSION['documento'])) {
         header('location:interfaces/libs/validar-entrada.php');
     }
     ?>
+<!DOCTYPE html>
+<html lang="es">
+<head></head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  -->
+
+<link rel="stylesheet" href="librerias/css/bootstrap.min.css">
+<script src="librerias/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/login.css">
     <title>Login</title>
+
 </head>
 <body class="d-flex justify-content-center align-items-center">
     
@@ -41,6 +54,7 @@
             </div>
         </form>
     </div>
-    <?php require "bootstrapfoo/boofoo.php"?>
+
+   
     </body>
 </html>

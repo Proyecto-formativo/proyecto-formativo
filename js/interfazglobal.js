@@ -1,4 +1,5 @@
-$(document).ready(function () {
+
+$(document).ready(function() {
   var change = document.getElementById("change");
   var dt = document.getElementsByClassName("boton");
   //se ingresara un texto donde se indicara la funcionalidad del sistema nota: solo al principio de la pagina
@@ -22,55 +23,90 @@ $(document).ready(function () {
 
   if (change.clientHeight < 600) {
     change.style.height = "100%";
-  }else{
+  } else {
     change.style.height = null;
   }
   console.log(change.clientHeight);
-  
+
   //se creara un ajax por boton con su respectivo enrutamiento
   for (let i = 0; i < dt.length; i++) {
     dt[i].addEventListener("click", function() {
-      
-      fetch('libs/control.php?numero='+i)
-      .then(res => res.text())
-      .then(data => change.innerHTML=data)
-      .then(() => {
-        $('.ficha').bind('keyup',function () {
-          var ficha = $('.ficha').val();
-          $.ajax({
-            type: "post",
-            url: "libs/numeroFicha.php",
-            data: {numeroficha:ficha},
-            //dataType: "php",
-            success: function (respuesta) {
-                $('.infoContent').html(respuesta)
-            }
-          });//fin del ajax 
-        });//fin de bind keyup
+      fetch("libs/control.php?numero=" + i)
+        .then(res => res.text())
+        .then(data => (change.innerHTML = data))
+        .then(() => {
 
-        $('.otro').bind('click',function (e) {
-          e.pribendefout();
-          var ficha = $('.ficha').val();
-          $.ajax({
-            type: "post",
-            url: "libs/numeroFicha.php",
-            data: {numeroficha:ficha},
-            //dataType: "php",
-            success: function (respuesta) {
-                $('.infoContent').html(respuesta)
-            }
-          });//fin del ajax 
-        });//fin de click
+          $(".ficha").bind("keyup", function() {
+
+            var ficha = $(".ficha").val();
+            $.ajax({
+              type: "post",
+              url: "libs/numeroFicha.php",
+              data: { numeroficha: ficha },
+              success: function(respuesta) {
+                $(".infoContent").html(respuesta);
+              }
+            }); //fin del ajax
+
+          }); //fin de bind keyup
+
+          $("#FormularioCompromisos").bind("click", function(e) {
+
+            e.preventDefault();
+            var actividad = $("#actividad").val();
+            var responsable = $("#responsable").val();
+            var fechacompromiso = $("#fecha-compromiso").val();
+            $.ajax({
+              type: "post",
+              url: "libs/listarCompromisos.php",
+              data: { actividad: actividad,responsable:responsable,fechacompromiso:fechacompromiso },
+              success: function(respuestas) {
+                $("#listar-compromisos").html(respuestas);
+              },
+              error: function (jqXHR,estado,error) { 
+                console.error(error);
+                console.error(error);
+               }
+              
 
 
-      })
+            }); //fin del ajax
+          }); //fin de click
+
+//coordinador
+          
+          
+          
+                   $(".gracias1234").bind("click", function(e) {
+                    console.log("hola");
+                    e.preventDefault();
+                    var url="controllers/reportecoordinador.php";
+                    var dato=$(".gracias").val();
+                    $.ajax({
+                        type:'POST',
+                        url:url,
+                        data: 'id='+dato,
+                        success:function(response){
+                            alert(response);
+                        }
+                      
+                      
+                    }); //fin del ajax
+                  }); //fin de click
+        
+        
+
+
+
+
+        }); //fin them
 
       if (i == 0) {
         change.style.height = null;
-      }else{
+      } else {
         change.style.height = "100%";
       }
-      
     });
-  }  
-})
+  }
+});
+
