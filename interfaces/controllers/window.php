@@ -10,7 +10,6 @@ class window {
                 break;
         }
     }
-
     function bienestar($numero){
         switch ($numero) {
             case 0:
@@ -46,13 +45,11 @@ class window {
             case 10:
                 require "../views/vistas-globales/reportes-generales/consulta10.php";
                 break;
-
             case 11:
                 require "../views/configuraciones.php";
                 break;
         }
     }
-
   
     function coordinador($numero){
         switch ($numero) {
@@ -67,6 +64,5 @@ class window {
                 break;
         }
     }
-
 }
 ?>
