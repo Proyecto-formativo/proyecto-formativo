@@ -53,10 +53,11 @@ class window {
         }
     }
 
+  
     function coordinador($numero){
         switch ($numero) {
             case 0:
-                require "../views/instructor/citacion-comite.php";
+                require "../views/coordinador/reporteComite.php";
                 break;
             case 1:
                 require "../views/instructor/citar-aprendices.php";

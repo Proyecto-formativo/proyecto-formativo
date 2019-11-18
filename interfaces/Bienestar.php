@@ -10,7 +10,7 @@
     }
     ?>
     <link rel="stylesheet" href="../styles/inter.css">
-    <script src="https://kit.fontawesome.com/4de60b0d23.js"></script>
+    <script src="https://kit.fontawesome.com/4de60b0d23.js" crossorigin="anonymous"></script>
     <title>Bienestar</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
 
     <header>
         <div class=" d-flex align-items-center text-white  style-flex">
-            <img src="../imagenes/Logo-B-white.png" class="style-img" alt="Logo SENA">
+           <a href=""><img src="../imagenes/Logo-B-white.png" class="style-img" alt="Logo SENA"></a> 
             <h3 class="st-text">SAC - Seguimientos Aprendices Citados </h3>
             <div>
 
@@ -26,8 +26,7 @@
                 <p  class="d-inline"><?=$_SESSION['nombreU']?></p>
             </div>
         </div>
-    </header>
-
+    </header> 
 
     <nav>
         <div class="style-contenido">
@@ -45,36 +44,35 @@
 
                     <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton">
                         <div class="style-botones-dropdown boton">
-                            <button type="button" id="btn-2" class="btn">*Aprendices Citados Por Ficha Y Programa</button>
+                            <button type="button" id="btn-2" class="dropdown-item">Aprendices Citados Por Ficha Y Programa</button>
                         </div>
                         <div class="style-botones-dropdown boton">
-                            <button type="button" id="btn-2" class="btn">*Areas Que Realizan Más Citaciones A Comité</button>
+                            <button type="button" id="btn-2" class="dropdown-item">Areas Que Realizan Más Citaciones A Comité</button>
                         </div>
                         <div class="style-botones-dropdown boton">
-                            <button type="button" id="btn-2" class="btn">*Total Aprendices Citados A Comité</button>
+                            <button type="button" id="btn-2" class="dropdown-item">Total Aprendices Citados A Comité</button>
                         </div>
                         <div class="style-botones-dropdown boton">
-                            <button type="button" id="btn-2" class="btn">*Total Aprendices Citados A Comité Por Materia</button>
+                            <button type="button" id="btn-2" class="dropdown-item">Total Aprendices Citados A Comité Por Materia</button>
                         </div>
                         <div class="style-botones-dropdown boton">
-                            <button type="button" id="btn-2" class="btn">*Equipo Ejecutor Por Ficha</button>
+                            <button type="button" id="btn-2" class="dropdown-item">Equipo Ejecutor Por Ficha</button>
                         </div>
                         <div class="style-botones-dropdown boton">
-                            <button type="button" id="btn-2" class="btn">*Instructor Que Realiza Más Citaciones Por Programa De Foración</button>
+                            <button type="button" id="btn-2" class="dropdown-item">Instructor Que Realiza Más Citaciones Por Programa De Foración</button>
                         </div>
                         <div class="style-botones-dropdown boton">
-                            <button type="button" id="btn-2" class="btn">*Total Aprendices Citados A Comité</button>
+                            <button type="button" id="btn-2" class="dropdown-item">Total Aprendices Citados A Comité</button>
                         </div>
                         <div class="style-botones-dropdown boton">
-                            <button type="button" id="btn-2" class="btn">*Aprendices Citados Por Ficha Y Programa</button>
+                            <button type="button" id="btn-2" class="dropdown-item">Aprendices Citados Por Ficha Y Programa</button>
                         </div>
                         <div class="style-botones-dropdown boton">
-                            <button type="button" id="btn-2" class="btn">*Total Aprendices Citados A Comité</button>
+                            <button type="button" id="btn-2" class="dropdown-item">Total Aprendices Citados A Comité</button>
                         </div>
                         <div class="style-botones-dropdown boton">
-                            <button type="button" id="btn-2" class="btn">*Total Aprendices Citados A Comité En El Año</button>
+                            <button type="button" id="btn-2" class="dropdown-item">Total Aprendices Citados A Comité En El Año</button>
                         </div>
-
                     </div>
                 </div>
 
@@ -101,10 +99,6 @@
     </section>
 
 <?php require "../bootstrapfoo/boofoo.php"?>
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
 <script src="../js/interfazglobal.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-    <?php require "bootstraphead/boohead.php";
+    <?php require "bootstraphead/boohead.php"; 
     session_start();
 
     if (isset($_SESSION['documento'])) {
@@ -7,6 +7,7 @@
     ?>
     <link rel="stylesheet" href="styles/login.css">
     <title>Login</title>
+    
 </head>
 <body class="d-flex justify-content-center align-items-center">
     

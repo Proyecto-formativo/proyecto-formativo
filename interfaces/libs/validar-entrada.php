@@ -4,7 +4,7 @@ session_start();
 if ( (!empty($_POST['docu'])  &&  !empty($_POST['pas'])) || (!empty( $_SESSION['password']) && !empty( $_SESSION['password']))  ) {
     
     require "../controllers/conectar.php";
-    $cone = new conectar();
+    $cone = new conectar(); 
     if (isset($_SESSION['password']) && isset($_SESSION['documento']) ) {
        $cone->validarUsuario($_SESSION['documento'],$_SESSION['password']);
     
